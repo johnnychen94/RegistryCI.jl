@@ -30,13 +30,13 @@ function _include_this_registry(
     end
     for fieldvalue in all_fieldvalues
         for registry_deps_name in registry_deps_names
-            if strip(fieldvalue) == strip(registry_deps_name)
+            if lowercase(strip(fieldvalue)) == lowercase(strip(registry_deps_name))
                 return true
             end
-            if strip(fieldvalue) == strip("$(registry_deps_name).git")
+            if lowercase(strip(fieldvalue)) == lowercase(strip("$(registry_deps_name).git"))
                 return true
             end
-            if strip("$(fieldvalue).git") == strip(registry_deps_name)
+            if lowercase(strip("$(fieldvalue).git")) == lowercase(strip(registry_deps_name))
                 return true
             end
         end
